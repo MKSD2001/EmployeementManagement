@@ -1,0 +1,92 @@
+package com.Emp.entity;
+
+import javax.persistence.*;
+import java.util.*;
+
+@Entity
+@Table(name = "Attendance")
+public class Attendances {
+
+	
+	
+	    @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    @Column(name = "AttendanceID")
+	    private int attendanceId;
+
+	    @ManyToOne
+	    @JoinColumn(name = "EmployeeID")
+	    private Employees employee;
+
+	    @Column(name = "Date")
+	    private Date date;
+
+	    @Column(name = "Time_In")
+	    private Date timeIn;
+
+	    @Column(name = "Time_Out")
+	    private Date timeOut;
+
+	    
+	    public Attendances() {
+	    	
+	    }
+		@Override
+		public String toString() {
+			return "Attendances [attendanceId=" + attendanceId + ", employee=" + employee + ", date=" + date
+					+ ", timeIn=" + timeIn + ", timeOut=" + timeOut + "]";
+		}
+		public Attendances(int attendanceId, Employees employee, Date date, Date timeIn, Date timeOut) {
+			super();
+			this.attendanceId = attendanceId;
+			this.employee = employee;
+			this.date = date;
+			this.timeIn = timeIn;
+			this.timeOut = timeOut;
+		}
+
+		public int getAttendanceId() {
+			return attendanceId;
+		}
+
+		public void setAttendanceId(int attendanceId) {
+			this.attendanceId = attendanceId;
+		}
+
+		public Employees getEmployee() {
+			return employee;
+		}
+
+		public void setEmployee(Employees employee) {
+			this.employee = employee;
+		}
+
+		public Date getDate() {
+			return date;
+		}
+
+		public void setDate(Date date) {
+			this.date = date;
+		}
+
+		public Date getTimeIn() {
+			return timeIn;
+		}
+
+		public void setTimeIn(Date timeIn) {
+			this.timeIn = timeIn;
+		}
+
+		public Date getTimeOut() {
+			return timeOut;
+		}
+
+		public void setTimeOut(Date timeOut) {
+			this.timeOut = timeOut;
+		}
+	    
+	    
+
+	
+	
+}
